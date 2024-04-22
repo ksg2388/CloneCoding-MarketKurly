@@ -8,3 +8,11 @@ export type Banner = {
   id: number;
   content: string;
 };
+
+export type Products = {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+};

@@ -2,10 +2,19 @@ import { css } from '@emotion/react';
 import { List, ListItem, ListItemText } from '@mui/material';
 import category from 'constants/category';
 import useHover from 'hooks/useHover';
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Menubar = () => {
+  const navigate = useNavigate();
   const [categoryRef, isHover] = useHover();
+
+  const handleCategoryClick = useCallback(
+    (id: number) => {
+      navigate(`/category/${id}`);
+    },
+    [navigate]
+  );
 
   return (
     <div
@@ -70,7 +79,10 @@ const Menubar = () => {
                 subheader={<li />}
               >
                 {category.map((item) => (
-                  <ListItem key={`item-${item.id}`}>
+                  <ListItem
+                    key={`item-${item.id}`}
+                    onClick={() => handleCategoryClick(item.id)}
+                  >
                     <img
                       src={item.icon}
                       alt={item.name}

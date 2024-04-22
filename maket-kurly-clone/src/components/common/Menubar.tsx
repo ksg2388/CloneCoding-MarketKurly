@@ -15,7 +15,6 @@ const Menubar = () => {
         width: 1050px;
         height: 70px;
       `}
-      ref={categoryRef}
     >
       <div
         css={css`
@@ -66,6 +65,7 @@ const Menubar = () => {
                   '& ul': { padding: 0 },
                   border: '1px solid #d4d4d4',
                   top: '152px',
+                  zIndex: '10',
                 }}
                 subheader={<li />}
               >

@@ -6,6 +6,7 @@ import { Banner } from 'types/common/common.type';
 const Carousel = () => {
   const [selectedId, setSelectedId] = useState(1);
   const [newBanners, setNewBanners] = useState<Banner[]>([]);
+  const [debounceState, setDebounceState] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const changeContent = useCallback((index: number) => {
@@ -18,6 +19,9 @@ const Carousel = () => {
   }, []);
 
   const handleClickLeft = useCallback(() => {
+    if (debounceState) return;
+    setDebounceState(true);
+
     setSelectedId((prev) => prev - 1);
     if (selectedId === 1) {
       changeContent(newBanners.length - 2);
@@ -25,9 +29,12 @@ const Carousel = () => {
     if (carouselRef.current) {
       carouselRef.current.style.transition = 'all 0.5s ease-in-out';
     }
-  }, [changeContent, newBanners, selectedId]);
+  }, [changeContent, debounceState, newBanners.length, selectedId]);
 
   const handleClickRight = useCallback(() => {
+    if (debounceState) return;
+    setDebounceState(true);
+
     setSelectedId((prev) => prev + 1);
     if (selectedId === newBanners.length - 2) {
       changeContent(1);
@@ -35,12 +42,22 @@ const Carousel = () => {
     if (carouselRef.current) {
       carouselRef.current.style.transition = 'all 0.5s ease-in-out';
     }
-  }, [changeContent, newBanners, selectedId]);
+  }, [changeContent, debounceState, newBanners.length, selectedId]);
 
   useEffect(() => {
     const temp = [banners[banners.length - 1], ...banners, banners[0]];
     setNewBanners(temp);
   }, []);
+
+  useEffect(() => {
+    const debounce = setTimeout(() => {
+      setDebounceState(false);
+    }, 500);
+
+    return () => {
+      clearTimeout(debounce);
+    };
+  }, [selectedId]);
 
   return (
     <div

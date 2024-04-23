@@ -1,12 +1,23 @@
 import { css } from '@emotion/react';
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { Products } from 'types/common/common.type';
+import ShoppingBagDialog from './ShoppingBagDialog';
 
 type Props = {
   product: Products;
 };
 
 const ProductCard = ({ product }: Props) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = useCallback(() => {
+    setIsOpen(true);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
   return (
     <div
       css={css`
@@ -31,6 +42,7 @@ const ProductCard = ({ product }: Props) => {
           padding: 12px 12px;
           cursor: pointer;
         `}
+        onClick={handleOpen}
       >
         <span
           className="material-symbols-outlined"
@@ -71,6 +83,11 @@ const ProductCard = ({ product }: Props) => {
       >
         {`${product.price.toLocaleString()}원`}
       </div>
+      <ShoppingBagDialog
+        isOpen={isOpen}
+        handleClose={handleClose}
+        product={product}
+      />
     </div>
   );
 };

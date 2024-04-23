@@ -1,4 +1,5 @@
 import MainLayout from 'layout/MainLayout';
+import CartPage from 'pages/CartPage';
 import CategoryPage from 'pages/CategoryPage';
 import HomePage from 'pages/HomePage';
 import React from 'react';
@@ -21,6 +22,7 @@ const RootRouter = () => {
               element={<CategoryPage title="수산·해산·건어물" />}
             />
           </Route>
+          <Route path="cart" element={<CartPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

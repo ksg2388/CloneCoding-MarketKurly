@@ -29,7 +29,7 @@ export const vegetable: Products[] = [
 
 export const fruitNutsRice: Products[] = [
   {
-    id: 1,
+    id: 4,
     name: '[KF365]대추방울토마토 750g',
     description: '믿고 먹을 수 있는 상품을 합리적인 가격에',
     price: 9900,
@@ -37,7 +37,7 @@ export const fruitNutsRice: Products[] = [
       'https://product-image.kurly.com/cdn-cgi/image/fit=crop,width=360,height=468,quality=85/product/image/e166e781-1e3b-4955-b9a3-5d81da5b72c8.jpg',
   },
   {
-    id: 2,
+    id: 5,
     name: '당도선별 성주 참외 1.5kg (4~7입)',
     description: '뽀얀 과육에 담긴 시원한 단맛',
     price: 21900,
@@ -45,7 +45,7 @@ export const fruitNutsRice: Products[] = [
       'https://img-cf.kurly.com/cdn-cgi/image/fit=crop,width=360,height=468,quality=85/shop/data/goods/1653038449592l0.jpeg?v=0418',
   },
   {
-    id: 3,
+    id: 6,
     name: '유레카 블루베리 100g 3종 (택1)',
     description: '큼지막한 사이즈를 자랑하는 블루베리',
     price: 11900,
@@ -56,7 +56,7 @@ export const fruitNutsRice: Products[] = [
 
 export const seafoodDriedFish: Products[] = [
   {
-    id: 1,
+    id: 7,
     name: "[포트'럭] 동해안 단새우 300g (냉동)",
     description: '부드러운 살결과 달큰한 풍미',
     price: 12900,
@@ -64,7 +64,7 @@ export const seafoodDriedFish: Products[] = [
       'https://product-image.kurly.com/cdn-cgi/image/fit=crop,width=360,height=468,quality=85/product/image/70c0a1c7-2b73-4f8e-ae14-8a3802b75d6a.jpg',
   },
   {
-    id: 2,
+    id: 8,
     name: '[풀무원] 생성구이 3종 (택1)',
     description: '간편하게 즐기는 고소한 생선구이',
     price: 6980,
@@ -72,7 +72,7 @@ export const seafoodDriedFish: Products[] = [
       'https://product-image.kurly.com/cdn-cgi/image/fit=crop,width=360,height=468,quality=85/product/image/f188c429-873b-4e58-9f79-240e327f6083.jpg',
   },
   {
-    id: 3,
+    id: 9,
     name: "[포트'럭] 서해안 봄 암꽃게 1kg (생물)",
     description: '알이 꽉 차오른 제철 별미',
     price: 49000,

@@ -2,8 +2,11 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { ReactComponent as Logo } from 'assets/images/logo.svg';
 import Menubar from './Menubar';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
+
   return (
     <header
       css={css`
@@ -32,6 +35,7 @@ const Header = () => {
             font-weight: 600;
             margin-left: 18px;
           `}
+          onClick={() => navigate('/')}
         >
           마켓컬리
         </p>
@@ -40,7 +44,11 @@ const Header = () => {
           css={css`
             margin-left: auto;
             font-size: 28px;
+            cursor: pointer;
           `}
+          onClick={() => {
+            navigate('/cart');
+          }}
         >
           shopping_cart
         </span>

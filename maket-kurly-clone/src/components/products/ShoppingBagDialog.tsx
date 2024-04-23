@@ -5,7 +5,8 @@ import {
   DialogContent,
   css,
 } from '@mui/material';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import useCartStore from 'stores/useStore';
 import { Products } from 'types/common/common.type';
 
 type Props = {
@@ -16,6 +17,7 @@ type Props = {
 
 const ShoppingBagDialog = ({ isOpen, handleClose, product }: Props) => {
   const [count, setCount] = useState(0);
+  const { addItem } = useCartStore();
 
   const handleClickMinus = useCallback(() => {
     if (count === 0) return;
@@ -25,6 +27,10 @@ const ShoppingBagDialog = ({ isOpen, handleClose, product }: Props) => {
   const handleClickPlus = useCallback(() => {
     setCount((prev) => prev + 1);
   }, []);
+
+  useEffect(() => {
+    setCount(0);
+  }, [isOpen]);
 
   return (
     <Dialog open={isOpen}>
@@ -156,6 +162,10 @@ const ShoppingBagDialog = ({ isOpen, handleClose, product }: Props) => {
           css={css`
             width: 45%;
           `}
+          onClick={() => {
+            addItem(product, count);
+            handleClose();
+          }}
         >
           장바구니 담기
         </Button>

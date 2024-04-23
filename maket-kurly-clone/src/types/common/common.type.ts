@@ -16,3 +16,12 @@ export type Products = {
   price: number;
   image: string;
 };
+
+export type CartItem = {
+  id: number;
+  name: string;
+  price: number;
+  count: number;
+  image: string;
+  isChecked: boolean;
+};
